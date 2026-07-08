@@ -1,0 +1,867 @@
+/* --- ENVOLTORIO AISLADO --- */
+.punk-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1800px; /* Ancho máximo del carrusel */
+    height: 700px;     /* Altura de los muros */
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;  /* Oculta lo que sale de los bordes */
+    font-family: sans-serif;
+}
+
+/* --- LA PISTA --- */
+.punk-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.mural-board {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 800px;
+    height: 500px;
+
+    border: 14px solid #4a3320;
+    border-radius: 4px;
+
+    /* Imagen de fondo */
+    background-image: url("../img/tablon.png");
+    background-size: cover;      /* La imagen cubre todo el div */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat;/* No se repite */
+
+    transition: transform 0.5s ease-in-out,
+                left 0.5s ease-in-out,
+                filter 0.5s ease-in-out,
+                opacity 0.5s ease-in-out;
+
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    z-index: 0;
+}
+
+/* Estado: Tarjeta Anterior (Izquierda - Gris) */
+.mural-board.prev {
+    left: 25%;
+    transform: translate(-50%, -50%) scale(0.85);
+    filter: grayscale(100%) opacity(0.6); /* Gris y un poco transparente */
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Estado: Tarjeta Siguiente (Derecha - Gris) */
+.mural-board.next {
+    left: 75%;
+    transform: translate(-50%, -50%) scale(0.85);
+    filter: grayscale(100%) opacity(0.6); /* Gris y un poco transparente */
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Estado: Tarjeta Actual (Centro - Color real) */
+.mural-board.active {
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    filter: grayscale(0%) opacity(1); /* Sin filtro */
+    opacity: 1;
+    z-index: 2;
+    box-shadow: 10px 10px 0 #000; /* Sombra dura punk */
+}
+
+/* --- BOTONES DE PAPEL RASGADO --- */
+.punk-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    color: #000;
+    border: none;
+    width: 60px;
+    height: 80px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    
+    /* Forma irregular simulando papel arrancado */
+    clip-path: polygon(10% 0, 100% 5%, 90% 100%, 0 95%);
+    /* Filtro para simular sombra del papel */
+    filter: drop-shadow(4px 4px 0px #000);
+}
+
+.punk-btn:hover {
+    background: #ff66c4; /* Color punk al pasar el mouse */
+}
+
+.prev-btn { left: 10px; clip-path: polygon(0 5%, 90% 0, 100% 95%, 10% 100%); }
+.next-btn { right: 10px; clip-path: polygon(10% 0, 100% 5%, 90% 100%, 0 95%); }
+
+/* --- SISTEMA DE POSICIONAMIENTO CON VARIABLES --- */
+.mural-item {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--w);
+    transform: rotate(var(--rot));
+    
+    /* Agrega una sombra dura general para el estilo Punk */
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.85);
+    z-index: 10;
+}
+
+/* --- ESTILO POLAROID --- */
+.polaroid {
+    background-color: #fcfcfc;
+    /* Relleno: Arriba, Derecha, Abajo (más ancho), Izquierda */
+    padding: 12px 12px 50px 12px; 
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+    background-color: #0d0d0d;
+    /* Filtro para que las fotos se vean más crudas/punk */
+    filter: contrast(120%) grayscale(50%); 
+}
+
+/* --- ESTILO POST-IT --- */
+.post-it {
+    /* Usa la variable de color, si no hay, por defecto es amarillo */
+    background-color: var(--bg, #fdfd96); 
+    padding: 25px 20px 20px 20px;
+    border: 1px solid rgba(0,0,0,0.1);
+    min-height: 150px;
+}
+
+/* --- TEXTO ESCRITO A MANO --- */
+.handwritten-text {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    margin-top: 15px;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.post-it .handwritten-text {
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* --- ELEMENTOS DE AGARRE (CINTA Y CLAVO) --- */
+
+/* La Cinta de Papel (Masking Tape) */
+.cinta {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 80px;
+    height: 30px;
+    background-color: rgba(226, 219, 192, 0.85); /* Beige semitransparente */
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    z-index: 20;
+    
+    /* Bordes rasgados usando clip-path */
+    clip-path: polygon(2% 5%, 98% 0%, 100% 95%, 0% 100%);
+}
+
+/* El Clavo / Pincheta */
+.clavo {
+    position: absolute;
+    top: 10px; /* Clavado cerca del borde superior */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 18px;
+    background-color: #413e3e; /* Rojo clásico de pincheta */
+    border-radius: 50%;
+    z-index: 20;
+    
+    /* Efecto 3D de esfera de plástico */
+    border: 1px solid #000;
+    box-shadow: 
+        inset -3px -3px 5px rgba(0,0,0,0.4), /* Sombra interna (volumen) */
+        3px 3px 2px rgba(0,0,0,0.5);         /* Sombra proyectada en el papel */
+}
+
+/* --- CONTENEDOR REUTILIZABLE --- */
+.punk-text-box {
+    background-color: #f4f1ea; /* Color papel hueso */
+    width: 100%;
+    max-width: 450px; /* Tamaño compacto y fijo */
+    padding: 30px 25px;
+    margin: 20px; /* Espacio entre bloques */
+    position: relative;
+    display: inline-block; /* Permite poner varios uno al lado del otro */
+    vertical-align: top;
+    
+    /* Borde rasgado más sutil para que sea legible */
+    clip-path: polygon(1% 2%, 99% 0%, 98% 99%, 0% 98%);
+    
+    /* Sombra brutalista */
+    filter: drop-shadow(6px 6px 0px #0d0d0d);
+}
+
+/* Una variante de forma por si pones varios juntos y no quieres que sean idénticos */
+.punk-text-box.alt-shape {
+    clip-path: polygon(0% 1%, 100% 2%, 99% 98%, 2% 100%);
+    background-color: #eae5d9; /* Un tono de papel ligeramente distinto */
+}
+
+/* --- DETALLE DE CINTA ADHESIVA --- */
+.tape-top {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 100px;
+    height: 25px;
+    background-color: rgba(224, 214, 190, 0.9);
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+/* --- CONTENEDOR BASE DE LA TARJETA --- */
+.punk-text-card {
+    background-color: #f4f1ea; /* Color papel periódico/hueso */
+    width: 100%;
+    max-width: 1400px; /* Ancho máximo para que no se estire infinitamente */
+    margin: 20px auto; /* Centrado con espacio arriba y abajo */
+    padding: 30px;
+    
+    /* Bordes rústicos pero controlados */
+    border: 3px solid #0d0d0d;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
+    
+    /* Pequeño corte en las esquinas para simular papel rasgado sin exagerar */
+    clip-path: polygon(2% 0, 100% 1%, 98% 100%, 0 98%);
+    
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+/* Modificador de fondo (por si quieres una tarjeta de otro color) */
+.punk-text-card.alt-bg {
+    background-color: #e5e5e5;
+}
+
+/* Efecto sutil al pasar el mouse (opcional) */
+.punk-text-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+}
+
+/* --- TÍTULO DE LA TARJETA --- */
+.card-title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-family: 'Oswald', sans-serif; /* O la fuente fuerte que prefieras */
+}
+
+/* --- RECORTES (REUTILIZABLES EN TÍTULOS O PÁRRAFOS) --- */
+.cut-word {
+    display: inline-block;
+    padding: 2px 8px;
+    border: 2px solid #0d0d0d;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 2px 2px 0px #0d0d0d;
+    line-height: 1.2;
+}
+
+/* Tamaño más pequeño para usar dentro de los párrafos */
+.small-cut {
+    font-size: 0.9rem;
+    padding: 1px 5px;
+    box-shadow: 1px 1px 0px #0d0d0d;
+    transform: translateY(-2px); /* Alinea un poco mejor con el texto normal */
+}
+
+/* Colores y rotaciones */
+.bg-black { background-color: #0d0d0d; }
+.text-white { color: #ffffff; }
+.bg-white { background-color: #ffffff; }
+.text-black { color: #0d0d0d; }
+.bg-pink { background-color: #ff66c4; }
+.bg-cyan { background-color: #38b6ff; }
+.bg-yellow { background-color: #ffde59; }
+
+.rot-left { transform: rotate(-3deg); }
+.rot-right { transform: rotate(3deg); }
+
+/* --- CONTENIDO DE TEXTO (PÁRRAFOS) --- */
+.card-content {
+    font-family: sans-serif; /* Tipografía limpia para que no canse leer */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #1a1a1a;
+}
+
+.card-content p {
+    margin-bottom: 15px;
+}
+
+.card-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- RESALTADORES PARA EL TEXTO --- */
+.punk-highlight {
+    font-family: 'Courier Prime', monospace;
+    font-weight: bold;
+    padding: 0 4px;
+    border: 1px dashed #0d0d0d;
+}
+
+.punk-marker {
+    font-family: 'Permanent Marker', cursive; /* Asegúrate de tener importada esta fuente */
+    font-size: 1.2rem;
+    display: inline-block;
+    transform: rotate(-1deg);
+}
+.text-purple { color: #8c52ff; }
+
+/* --- ESTILOS PARA LA LISTA PUNK --- */
+.punk-list {
+    list-style-type: none; /* Quitamos los puntos por defecto del navegador */
+    padding-left: 0;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Espacio entre cada dato */
+}
+
+/* Cada elemento de la lista (simula una tira de papel/etiqueta) */
+.punk-list li {
+    position: relative;
+    padding: 12px 15px 12px 40px; /* Espacio extra a la izquierda para nuestro ícono */
+    background-color: #ffffff;
+    border: 2px solid #0d0d0d;
+    box-shadow: 3px 3px 0px #0d0d0d;
+    
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #1a1a1a;
+    
+    /* Inclinación leve por defecto */
+    transform: rotate(-1deg);
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+/* Hacemos que los elementos pares se inclinen al otro lado para generar caos controlado */
+.punk-list li:nth-child(even) {
+    transform: rotate(1deg);
+    background-color: #f4f1ea; /* Un color ligeramente distinto para intercalar */
+}
+
+/* Efecto al pasar el mouse por cada dato */
+.punk-list li:hover {
+    transform: scale(1.02) rotate(0deg);
+    background-color: #ffde59; /* Se ilumina en amarillo punk */
+}
+
+/* --- EL ÍCONO PERSONALIZADO (Viñeta Punk) --- */
+.punk-list li::before {
+    content: '★'; /* Puedes cambiarlo por 'X', '>', o '!' */
+    position: absolute;
+    left: 12px;
+    top: 14px;
+    
+    font-family: 'Bangers', cursive; /* Usa una tipografía de impacto */
+    font-size: 1.2rem;
+    color: #ff66c4; /* Estrella fucsia */
+    
+    /* Sombra pequeña para el ícono */
+    text-shadow: 1px 1px 0px #0d0d0d;
+}
+
+/* Destacar la primera palabra (como si fuera un subtítulo del dato) */
+.punk-list li strong {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #5e17eb; /* Morado oscuro */
+}
+
+/* --- CONTENEDOR DE LA CUADRÍCULA --- */
+.punk-products-grid {
+    display: grid;
+    /* Esto hace que se adapte a celulares (1 columna) o PC (varias columnas) automáticamente */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- TARJETA BOTÓN (EL ENLACE COMPLETO) --- */
+.product-card-link {
+    display: flex;
+    flex-direction: column;
+    background-color: #fcfcfc;
+    border: 3px solid #0d0d0d;
+    padding: 20px;
+    text-decoration: none; /* Quitamos el subrayado típico de los enlaces */
+    color: inherit;
+    position: relative;
+    
+    /* Sombra brutalista base */
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
+    transition: all 0.2s ease-out;
+}
+
+.product-card-link.alt-bg {
+    background-color: #f4f1ea;
+}
+
+/* Efecto al pasar el mouse por encima (Interacción Punk) */
+.product-card-link:hover {
+    transform: translateY(-5px) scale(1.02) rotate(0deg) !important;
+    box-shadow: 10px 10px 0px #0d0d0d;
+    z-index: 10;
+}
+
+/* Efecto al hacer clic */
+.product-card-link:active {
+    transform: translateY(2px) scale(0.98) !important;
+    box-shadow: 2px 2px 0px #0d0d0d;
+}
+
+/* --- CINTA ADHESIVA DECORATIVA --- */
+.tape-top {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 100px;
+    height: 30px;
+    background-color: rgba(226, 219, 192, 0.85);
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    z-index: 20;
+    clip-path: polygon(2% 5%, 98% 0%, 100% 95%, 0% 100%);
+}
+
+/* --- IMAGEN DEL PRODUCTO --- */
+.product-image {
+    width: 100%;
+    height: 180px;
+    border: 2px solid #0d0d0d;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(80%) contrast(120%);
+    transition: filter 0.3s;
+}
+
+/* La foto recupera su color al pasar el mouse */
+.product-card-link:hover .product-image img {
+    filter: grayscale(0%) contrast(100%);
+}
+
+/* --- TEXTOS DE LA TARJETA --- */
+.product-title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+}
+
+.product-desc {
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #333;
+    flex-grow: 1; /* Empuja el botón hacia abajo si el texto es corto */
+    margin-bottom: 20px;
+}
+
+/* --- BOTÓN DE ACCIÓN INFERIOR --- */
+.action-btn {
+    align-self: flex-start;
+    padding: 8px 15px;
+    border: 2px solid #0d0d0d;
+    font-family: 'Bangers', cursive;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 0px #0d0d0d;
+    transition: background-color 0.2s;
+}
+
+/* Colores adicionales para los botones */
+.bg-purple { background-color: #8c52ff; }
+.product-card-link:hover .bg-pink { background-color: #ff3333; color: white; }
+.product-card-link:hover .bg-cyan { background-color: #ffde59; color: black; }
+.product-card-link:hover .bg-yellow { background-color: #38b6ff; color: black; }
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.punk-affiliates-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    background-color: #0d0d0d; /* Fondo negro para que los stickers resalten */
+    border: 4px solid #fff; /* Borde invertido */
+    box-shadow: 8px 8px 0px #ff66c4; /* Sombra fucsia para contrastar */
+    
+    /* Rasgón en los bordes del contenedor */
+    clip-path: polygon(1% 0, 100% 2%, 99% 100%, 0 98%);
+}
+
+.affiliates-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.small-ransom {
+    transform: scale(0.8); /* Reutilizamos tus clases de ransom, pero un poco más chicas */
+}
+
+.affiliates-subtitle {
+    color: #f4f1ea;
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.1rem;
+    margin-top: -10px;
+}
+
+/* --- TABLERO DE STICKERS --- */
+.sticker-board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Base común para todos los stickers */
+.affiliate-sticker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote */
+    position: relative;
+    color: #0d0d0d;
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: 1px;
+}
+
+/* Efecto Hover General */
+.affiliate-sticker:hover {
+    transform: scale(1.15) rotate(0deg) !important;
+    z-index: 10;
+}
+
+/* --- TIPO 1: Pegatina Blanca Gruesa (Die-cut) --- */
+.sticker-type-1 {
+    background-color: #fff;
+    padding: 15px 25px;
+    border: 3px solid #0d0d0d;
+    border-radius: 10px; /* Borde suave de pegatina */
+    box-shadow: 4px 4px 0px var(--accent);
+}
+
+/* --- TIPO 2: Cinta Negra con letras de color --- */
+.sticker-type-2 {
+    background-color: #0d0d0d;
+    color: var(--accent);
+    padding: 10px 30px;
+    border: 2px dashed var(--accent);
+    box-shadow: 4px 4px 0px #fff;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+/* --- TIPO 3: Parche Circular/Sello --- */
+.sticker-type-3 {
+    background-color: var(--accent);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #0d0d0d;
+    box-shadow: 4px 4px 0px #fff;
+    /* Texto deformado para encajar un poco mejor */
+    padding: 20px;
+}
+
+/* --- TIPO 4: Cartón Rasgado --- */
+.sticker-type-4 {
+    background-color: #cfa87a; /* Corcho/Cartón */
+    padding: 20px 25px;
+    border: 2px solid #0d0d0d;
+    box-shadow: 4px 4px 0px #0d0d0d;
+    clip-path: polygon(5% 0, 100% 5%, 95% 100%, 0 90%);
+}
+
+.tape-corner {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 40px;
+    height: 15px;
+    background-color: rgba(226, 219, 192, 0.9);
+    transform: rotate(45deg);
+    border: 1px solid rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+/* Rotaciones extra específicas para los stickers */
+.rot-left { transform: rotate(-5deg); }
+.rot-right { transform: rotate(7deg); }
+.rot-slight { transform: rotate(-2deg); }
+
+/* --- CONTENEDOR DEL FOOTER --- */
+.punk-footer {
+    background-color: #0d0d0d;
+    color: #ffffff;
+    width: 100%;
+    margin-top: 80px;
+    padding: 60px 20px 20px 20px;
+    position: relative;
+    
+    /* Borde superior rasgado imitando papel cortado */
+    clip-path: polygon(0 5%, 5% 0, 15% 4%, 25% 0, 40% 5%, 55% 1%, 70% 6%, 85% 0, 100% 4%, 100% 100%, 0 100%);
+}
+
+/* --- GRID PARA ORGANIZAR EL CONTENIDO --- */
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    border-bottom: 2px dashed #333;
+    padding-bottom: 40px;
+}
+
+/* --- SECCIÓN DE LA MARCA --- */
+.footer-brand {
+    flex: 1 1 300px;
+}
+
+.footer-logo {
+    font-family: 'Bangers', cursive;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    transform: rotate(-2deg);
+}
+
+.footer-logo span {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+/* --- REDES SOCIALES Y LEGALES --- */
+.footer-socials, .footer-legal {
+    flex: 1 1 200px;
+}
+
+.social-title {
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.2rem;
+    color: #8c52ff; /* Morado neón */
+    margin-bottom: 15px;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-links a {
+    color: #f4f1ea;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+    padding-left: 0;
+}
+
+/* Efectos al pasar el mouse por los enlaces */
+.social-links a:hover {
+    padding-left: 10px;
+    transform: translateX(5px);
+}
+
+.hover-cyan:hover { color: #38b6ff; border-left-color: #38b6ff; }
+.hover-pink:hover { color: #ff66c4; border-left-color: #ff66c4; }
+.hover-yellow:hover { color: #ffde59; border-left-color: #ffde59; }
+.hover-purple:hover { color: #8c52ff; border-left-color: #8c52ff; }
+
+/* Para los legales, un hover genérico en blanco */
+.footer-legal .social-links a:hover {
+    color: #fff;
+    border-left-color: #fff;
+}
+
+/* --- COPYRIGHT --- */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.highlight-punk {
+    background-color: #ff3333;
+    color: #fff;
+    padding: 0 5px;
+    font-family: 'Oswald', sans-serif;
+}
+
+/* --- ENVOLTORIO DEL TÍTULO --- */
+/* Esto da margen arriba y abajo para separar bien las secciones */
+.punk-section-title-wrapper {
+    width: 100%;
+    margin: 60px 0 30px 0;
+    display: flex;
+    justify-content: center; /* Cambia a 'flex-start' si los quieres alineados a la izquierda */
+    position: relative;
+    z-index: 10;
+}
+
+/* --- EL TÍTULO EN SÍ --- */
+.punk-section-title {
+    background-color: #0d0d0d;
+    color: #ffffff;
+    font-family: 'Bangers', cursive; /* O 'Oswald' si lo quieres más serio */
+    font-size: 3rem;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    /* Bordes ligeramente irregulares simulando cinta/papel */
+    clip-path: polygon(2% 0, 100% 4%, 98% 100%, 0 96%);
+    
+    /* Evita que el texto sea seleccionable para que se sienta más como una imagen/sello */
+    user-select: none; 
+}
+
+/* --- COLORES DE LAS SOMBRAS --- */
+/* Usamos filter en lugar de box-shadow porque clip-path corta las sombras normales */
+.shadow-pink { filter: drop-shadow(6px 6px 0px #ff66c4); }
+.shadow-cyan { filter: drop-shadow(6px 6px 0px #38b6ff); }
+.shadow-yellow { filter: drop-shadow(6px 6px 0px #ffde59); }
+.shadow-purple { filter: drop-shadow(6px 6px 0px #8c52ff); }
+
+/* --- INCLINACIONES REUTILIZABLES --- */
+.rot-left { transform: rotate(-2deg); }
+.rot-right { transform: rotate(2deg); }
+
+/* --- EL FONDO OSCURO QUE CUBRE TODA LA PANTALLA --- */
+.punk-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 13, 13, 0.85); /* Negro semitransparente */
+    backdrop-filter: grayscale(100%); /* Vuelve gris el fondo de la página */
+    z-index: 9999; /* Por encima de TODO */
+    
+    /* Centramos la mini página usando flexbox */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+/* --- LA MINI PÁGINA (EL PAPEL) --- */
+.punk-modal-content {
+    background-color: #f4f1ea;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh; /* Máximo 90% del alto de la pantalla */
+    overflow-y: auto; /* Si hay mucho contenido, aparece barra de scroll interior */
+    padding: 40px;
+    position: relative;
+    
+    /* Estética Punk */
+    border: 4px solid #0d0d0d;
+    box-shadow: 12px 12px 0px #ff66c4; /* Sombra fucsia fuerte */
+    clip-path: polygon(1% 1%, 99% 0, 100% 99%, 0 100%);
+    
+    /* Animación de entrada brusca */
+    animation: golpeModal 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes golpeModal {
+    0% { transform: scale(0.8) translateY(50px) rotate(-5deg); opacity: 0; }
+    100% { transform: scale(1) translateY(0) rotate(0); opacity: 1; }
+}
+
+
+/* --- EL BOTÓN DE CERRAR ('X') --- */
+.cerrar-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #ff3333;
+    color: white;
+    border: 3px solid #0d0d0d;
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px #0d0d0d;
+    z-index: 10;
+    transition: transform 0.1s;
+}
+
+.cerrar-modal-btn:hover {
+    background-color: #0d0d0d;
+    color: #ff3333;
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* --- CINTA ADHESIVA --- */
+.modal-tape {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+    width: 120px;
+    height: 35px;
+    background-color: rgba(226, 219, 192, 0.9);
+    border: 1px solid rgba(0,0,0,0.2);
+    z-index: 5;
+}

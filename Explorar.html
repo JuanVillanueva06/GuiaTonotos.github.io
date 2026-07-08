@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav Punk Rasgado</title>
+    <link rel="stylesheet" href="css/contenido_principal.css">
+    <link rel="stylesheet" href="css/contenido_inicio.css">
+    <link rel="stylesheet" href="css/contenido_explorar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <script src="js/contenido_inicio.js" defer></script>
+    <script src="js/jquery-4.0.0.min.js" defer></script>
+    <script src="js/modal.js" defer></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <svg width="0" height="0" class="svg-filter">
+        <filter id="torn-edge">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
+
+    <header class="header-container">
+        
+        <!-- PARTE 1: LOGO (Izquierda) -->
+        <div class="torn-logo-wrapper">
+            <div class="paper-layer layer-purple"></div>
+            <div class="paper-layer layer-pink"></div>
+            <div class="paper-layer layer-cyan"></div>
+            
+            <div class="paper-layer layer-white">
+                <!-- Solo reemplaza "tu_logo.png" por la ruta de tu imagen -->
+                <img src="img/logo.png" alt="Logo Guía Tonotos" class="logo-img">
+            </div>
+        </div>
+
+        <!-- PARTE 2: NAVEGACIÓN (Derecha) -->
+        <nav class="torn-nav">
+            <div class="paper-layer layer-purple"></div>
+            <div class="paper-layer layer-pink"></div>
+            <div class="paper-layer layer-cyan"></div>
+            
+            <div class="paper-layer layer-white">
+                <ul class="nav-links">
+                    <li><a href="Inicio.html" class="text-cyan active">Inicio</a></li>
+                    <li><a href="Explorar.html" class="text-dark">Explorar</a></li>
+                    <li><a href="Herramientas.html" class="text-purple">Herramientas</a></li>
+                    <li><a href="Referentes.html" class="text-pink">Referentes</a></li>
+                    <!-- Faltaba el color blue en tu CSS, puedes añadirlo o usar text-cyan -->
+                    <li><a href="Perfil.html" class="text-cyan">Perfil</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+
+    <!-- BARRA DE BÚSQUEDA PUNK -->
+    <div class="punk-search-wrapper rot-slight">
+        <div class="punk-search-container">
+            <!-- Etiqueta estilo post-it pegado arriba -->
+            <span class="search-label bg-yellow text-black">BUSCAR:</span>
+            
+            <!-- Campo para escribir -->
+            <input type="text" class="punk-search-input" placeholder="¿Qué necesitas encontrar?">
+            
+            <!-- Botón de acción -->
+            <button class="punk-search-btn bg-cyan">IR &#10142;</button>
+        </div>
+    </div>
+
+    <!-- CONTENEDOR PRINCIPAL DEL FEED ESTILO X -->
+    <div class="punk-feed-container">
+
+        <!-- POST 1: Tipografía y Diseño -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=TY" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Typo Rebel</span>
+                    <span class="user-handle">@typo_rebel</span>
+                    <span class="post-time">· 15m</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>
+                    Acabo de destrozar las reglas del kerning para un nuevo cartel. Si es legible, es aburrido. <span class="highlight-paper">El caos es el nuevo orden.</span> 🏴‍☠️
+                </p>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">4</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">12</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">45</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 2: Código Brutalista -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=DEV" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">CSS Vandal</span>
+                    <span class="user-handle">@css_vandal</span>
+                    <span class="post-time">· 42m</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>
+                    Usar frameworks está bien, pero programar a mano una grilla asimétrica que rompa el layout a propósito es una experiencia religiosa. <span class="text-purple">#WebBrutalism</span>
+                </p>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">22</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">8</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">104</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 3: Arte Glitch (Con imagen) -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=GL" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Glitch Master</span>
+                    <span class="user-handle">@hex_editor</span>
+                    <span class="post-time">· 1h</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>Abriendo archivos de imagen con un editor de texto y borrando líneas al azar. Resultados de la sesión de hoy:</p>
+                <div class="post-media-attachment">
+                    <img src="https://www.wikihow.com/images_en/thumb/3/35/Make-Pictures-out-of-Text-Step-10-Version-2.jpg/v4-460px-Make-Pictures-out-of-Text-Step-10-Version-2.jpg" alt="Glitch">
+                </div>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">15</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">44</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">230</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 4: Producción Musical -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=808" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Synth Punk</span>
+                    <span class="user-handle">@analog_noise</span>
+                    <span class="post-time">· 2h</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>
+                    Pasé 6 horas intentando afinar un sintetizador roto que compré en un mercado de pulgas. Suena terrible. <span class="punk-highlight bg-yellow">Lo voy a usar en todo el disco.</span>
+                </p>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">8</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">2</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">77</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 5: Creación de Fanzines (Con imagen) -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=ZN" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Zine Machine</span>
+                    <span class="user-handle">@papel_tijera</span>
+                    <span class="post-time">· 3h</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>Tirada lista. 50 copias engrapadas a mano. Si estás por el centro, te cambio una por un café. ☕✂️</p>
+                <div class="post-media-attachment">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRcS5BDXvLzX3KAxn-8KSosUiakfmk6Omt7NJ7St6qwDRI6X3fEkOoHCzR&s=10" alt="Fanzines">
+                </div>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">34</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">12</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">189</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+        
+        <!-- POST 6: Ilustración / Concept Art -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=INK" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Tinta Negra</span>
+                    <span class="user-handle">@ink_overflow</span>
+                    <span class="post-time">· 4h</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>
+                    Boceto rápido. La regla de hoy: no usar ctrl+z. Si me equivoco, la línea se queda y se convierte en parte del entorno.
+                </p>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">5</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">1</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">62</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 7: Fotografía Analógica (Con imagen) -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=ISO" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">ISO 3200</span>
+                    <span class="user-handle">@grain_lover</span>
+                    <span class="post-time">· 5h</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>Revelado casero vencido. Las manchas químicas le dan un toque post-apocalíptico que no consigues con filtros digitales.</p>
+                <div class="post-media-attachment">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT2gwmzbz3kgO-crFQ-_r7xeW23kjEi996Ih-81N2MTeCu0LDdaj0T2FGM&s=10" alt="Fotografía">
+                </div>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">11</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">9</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">140</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 8: Arte Urbano y Graffiti -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=ST" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Callejón D</span>
+                    <span class="user-handle">@street_tag</span>
+                    <span class="post-time">· 7h</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>
+                    Nuevo mural en la zona industrial. <span class="punk-highlight bg-cyan">5 latas de aerosol</span> y un stencil gigante. El arte pertenece a la calle.
+                </p>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">40</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">25</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">410</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 9: Desarrollo Indie / Videojuegos (Con imagen) -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=DEV" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Indie Scum</span>
+                    <span class="user-handle">@pixel_collider</span>
+                    <span class="post-time">· 9h</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>El sistema de colisiones está completamente roto, pero ahora los personajes pueden atravesar paredes y saltarse medio nivel. Creo que lo llamaré "feature". 🎮👾</p>
+                <div class="post-media-attachment">
+                    <img src="https://placehold.co/500x300/222/fff?text=SPRITE+BUG" alt="Bug en juego">
+                </div>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">19</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">50</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">320</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 10: Escritura / Guión -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=WR" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Draft Zero</span>
+                    <span class="user-handle">@typewriter_blood</span>
+                    <span class="post-time">· 12h</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>
+                    Maté a mi personaje principal en el capítulo 3. No estaba planeado, pero él se lo buscó. Ahora tengo que reescribir todo el segundo acto. <span class="text-purple">Maldición.</span>
+                </p>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">52</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">18</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">210</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 11: Pixel Art (Con imagen) -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=PX" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Bit Crusher</span>
+                    <span class="user-handle">@16bit_hero</span>
+                    <span class="post-time">· 14h</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>Estudio de paleta. Solo 4 colores. A veces la limitación es la mejor herramienta de diseño.</p>
+                <div class="post-media-attachment">
+                    <img src="https://placehold.co/500x300/222/fff?text=PALETA+PIXEL+ART" alt="Pixel Art">
+                </div>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">7</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">22</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">188</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 12: Diseño 3D -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=3D" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Vertex</span>
+                    <span class="user-handle">@poly_count</span>
+                    <span class="post-time">· 18h</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>
+                    Mi topología parece un plato de espaguetis, el render tarda 3 horas por frame y la máquina suena como un avión despegando. <span class="highlight-paper">Todo bajo control.</span>
+                </p>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">21</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">4</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">96</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 13: Hardware / Modding (Con imagen) -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=HW" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Circuit Bender</span>
+                    <span class="user-handle">@soldering_iron</span>
+                    <span class="post-time">· 21h</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>Le instalé una pantalla retroiluminada y un puerto USB-C a una consola de 1989. El frankenstein vive. ⚡</p>
+                <div class="post-media-attachment">
+                    <img src="https://placehold.co/500x300/222/fff?text=CONSOLA+MODIFICADA" alt="Modding">
+                </div>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">65</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">80</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">530</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 14: Tatuaje Clásico -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=TAT" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Aguja y Tinta</span>
+                    <span class="user-handle">@flash_sheet</span>
+                    <span class="post-time">· Ayer</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>
+                    Líneas gruesas, colores planos, cero sombreado suave. El estilo tradicional no muere nunca. Nuevos diseños listos para la sesión de mañana.
+                </p>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">9</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">0</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">112</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 15: Animación (Con imagen) -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=FPS" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Frame by Frame</span>
+                    <span class="user-handle">@24_fps</span>
+                    <span class="post-time">· Ayer</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>Test de movimiento. 12 dibujos para 1 segundo de acción, pero el impacto visual lo vale. Puro estilo rough animation.</p>
+                <div class="post-media-attachment">
+                    <img src="https://placehold.co/500x300/222/fff?text=ANIMACION+ROUGH" alt="Animación">
+                </div>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">28</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">95</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">840</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 16: Arte Generativo y Código -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=JS" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Creative Coder</span>
+                    <span class="user-handle">@canvas_api</span>
+                    <span class="post-time">· Hace 2d</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>
+                    Escribir un script que genere ruido visual infinito. <span class="punk-highlight bg-cyan">Math.random()</span> es el mejor pincel que existe.
+                </p>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">14</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">11</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">103</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+        
+        <!-- POST 17: Video / Edición (Con imagen) -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=VFX" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Corte Rápido</span>
+                    <span class="user-handle">@premiere_crash</span>
+                    <span class="post-time">· Hace 2d</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>Exportando el videoclip. Lleno de saltos de eje, cortes sucios y ruido de VHS. Exactamente como el cliente NO lo pidió. 🎬</p>
+                <div class="post-media-attachment">
+                    <img src="https://placehold.co/500x300/222/fff?text=TIMELINE+EDICION" alt="Timeline">
+                </div>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">31</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">7</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">155</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 18: Poesía Urbana / Letras -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=TXT" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Spoken Word</span>
+                    <span class="user-handle">@versos_rotos</span>
+                    <span class="post-time">· Hace 3d</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>
+                    "El cemento está más caliente que las ideas de la oficina".<br>
+                    Micrófono abierto esta noche en el sótano de siempre. Lleven sus libretas.
+                </p>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">18</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">5</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">92</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 19: Diseño Textil / Serigrafía (Con imagen) -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=PRT" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Malla 120</span>
+                    <span class="user-handle">@screen_print</span>
+                    <span class="post-time">· Hace 3d</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>Primera prueba de impresión de las nuevas camisetas. Tinta blanca sobre negro. El diseño quedó un poco torcido, lo cual lo hace perfecto.</p>
+                <div class="post-media-attachment">
+                    <img src="https://placehold.co/500x300/222/fff?text=SERIGRAFIA+PUNK" alt="Serigrafía">
+                </div>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">45</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">21</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">480</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <div class="feed-divider"></div>
+
+        <!-- POST 20: Crítica al Arte Tradicional -->
+        <article class="punk-post-card">
+            <div class="post-header">
+                <img src="https://placehold.co/100x100/0d0d0d/fff?text=NO" alt="Avatar" class="post-avatar">
+                <div class="post-user-info">
+                    <span class="user-name">Anti Museo</span>
+                    <span class="user-handle">@gallery_reject</span>
+                    <span class="post-time">· Hace 4d</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>
+                    Si tu obra necesita un texto curatorial de tres páginas para entenderse, no es arte, es una tarea. <span class="text-purple">Más actitud, menos pretensión.</span>
+                </p>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn-social hover-cyan">💬 <span class="count">88</span></button>
+                <button class="action-btn-social hover-green">🔁 <span class="count">120</span></button>
+                <button class="action-btn-social hover-pink">🖤 <span class="count">950</span></button>
+                <button class="action-btn-social hover-purple">🔗</button>
+            </div>
+        </article>
+
+        <!-- SEPARADOR -->
+        <div class="feed-divider"></div>
+
+    </div>
+    
+    <footer class="punk-footer">
+        <div class="footer-container">
+            
+            <div class="footer-brand">
+                <h2 class="footer-logo">
+                    <span class="bg-white text-black">GUÍA</span> 
+                    <span class="bg-pink text-black">TONOTOS</span>
+                </h2>
+                <p class="typewriter-text text-white">Creatividad a los golpes. 2026.</p>
+            </div>
+
+            <div class="footer-socials">
+                <h3 class="social-title">/ CONECTA</h3>
+                <ul class="social-links">
+                    <li><a href="#" class="hover-cyan">X / Twitter</a></li>
+                    <li><a href="#" class="hover-pink">Instagram</a></li>
+                    <li><a href="#" class="hover-yellow">Discord</a></li>
+                    <li><a href="#" class="hover-purple">TikTok</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-legal">
+                <h3 class="social-title">/ LEGAL</h3>
+                <ul class="social-links">
+                    <li><a href="#">Términos de Uso</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; 2026 Guía Tonotos. <span class="highlight-punk">Todos los derechos reservados.</span> (O tal vez no, haz lo que quieras).
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
