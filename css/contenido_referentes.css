@@ -1,0 +1,121 @@
+/* --- CONTENEDOR Y CUADRÍCULA --- */
+.punk-profiles-section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.profiles-grid {
+    display: grid;
+    /* Las tarjetas miden mínimo 300px, y se acomodan solas según el tamaño de la pantalla */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+/* --- TARJETA DE CREDENCIAL (ID CARD) --- */
+.profile-id-card {
+    background-color: #ffffff;
+    border: 3px solid #0d0d0d;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.9);
+    transition: transform 0.2s;
+}
+
+.profile-id-card.alt-bg {
+    background-color: #f4f1ea; /* Color papel viejo para variar */
+}
+
+.profile-id-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    z-index: 5;
+}
+
+/* --- FOTO DEL PERFIL --- */
+.profile-photo-box {
+    width: 100%;
+    border: 3px solid #0d0d0d;
+    background-color: #0d0d0d;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.profile-photo-box img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    /* Filtro para que parezca foto de periódico/fanzine */
+    filter: grayscale(100%) contrast(140%) sepia(20%);
+}
+
+.profile-id-card:hover .profile-photo-box img {
+    /* Recupera un poco el color al pasar el mouse */
+    filter: grayscale(30%) contrast(110%);
+}
+
+/* Número de serie (Detalle estético) */
+.serial-number {
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    background-color: #0d0d0d;
+    color: #fff;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.85rem;
+    padding: 2px 8px;
+    letter-spacing: 1px;
+}
+
+/* --- INFORMACIÓN DEL PERFIL --- */
+.profile-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.specialty-label {
+    align-self: flex-start; /* Evita que ocupe todo el ancho */
+    font-family: 'Courier Prime', monospace;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 2px 8px;
+    border: 2px solid #0d0d0d;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 0px #0d0d0d;
+    text-transform: uppercase;
+}
+
+.profile-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    color: #0d0d0d;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.profile-desc {
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* --- CINTA ADHESIVA SUPERIOR --- */
+.center-tape {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(2deg);
+    width: 90px;
+    height: 30px;
+    background-color: rgba(226, 219, 192, 0.9);
+    border: 1px solid rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    z-index: 10;
+    clip-path: polygon(3% 0, 97% 5%, 100% 95%, 0% 100%);
+}

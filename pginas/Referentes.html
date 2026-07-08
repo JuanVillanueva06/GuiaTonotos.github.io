@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav Punk Rasgado</title>
+    <link rel="stylesheet" href="../css/contenido_inicio.css">
+    <link rel="stylesheet" href="../css/contenido_principal.css">
+    <link rel="stylesheet" href="../css/contenido_referentes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <script src="../js/contenido_inicio.js" defer></script>
+    <script src="../js/jquery-4.0.0.min.js" defer></script>
+    <script src="js/modal.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <svg width="0" height="0" class="svg-filter">
+        <filter id="torn-edge">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
+
+    <header class="header-container">
+        
+        <!-- PARTE 1: LOGO (Izquierda) -->
+        <div class="torn-logo-wrapper">
+            <div class="paper-layer layer-purple"></div>
+            <div class="paper-layer layer-pink"></div>
+            <div class="paper-layer layer-cyan"></div>
+            
+            <div class="paper-layer layer-white">
+                <!-- Solo reemplaza "tu_logo.png" por la ruta de tu imagen -->
+                <img src="../img/logo.png" alt="Logo Guía Tonotos" class="logo-img">
+            </div>
+        </div>
+
+        <!-- PARTE 2: NAVEGACIÓN (Derecha) -->
+        <nav class="torn-nav">
+            <div class="paper-layer layer-purple"></div>
+            <div class="paper-layer layer-pink"></div>
+            <div class="paper-layer layer-cyan"></div>
+            
+            <div class="paper-layer layer-white">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="text-cyan active">Inicio</a></li>
+                    <li><a href="Explorar.html" class="text-dark">Explorar</a></li>
+                    <li><a href="Herramientas.html" class="text-purple">Herramientas</a></li>
+                    <li><a href="Referentes.html" class="text-pink">Referentes</a></li>
+                    <!-- Faltaba el color blue en tu CSS, puedes añadirlo o usar text-cyan -->
+                    <li><a href="Perfil.html" class="text-cyan">Perfil</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+
+    <!-- BARRA DE BÚSQUEDA PUNK -->
+    <div class="punk-search-wrapper rot-slight">
+        <div class="punk-search-container">
+            <!-- Etiqueta estilo post-it pegado arriba -->
+            <span class="search-label bg-yellow text-black">BUSCAR:</span>
+            
+            <!-- Campo para escribir -->
+            <input type="text" class="punk-search-input" placeholder="¿Qué necesitas encontrar?">
+            
+            <!-- Botón de acción -->
+            <button class="punk-search-btn bg-cyan">IR &#10142;</button>
+        </div>
+    </div>
+
+    <!-- SECCIÓN DE PERFILES REFERENTES -->
+    <section class="punk-profiles-section">
+        
+        <div class="profiles-grid">
+            
+            <!-- PERFIL 1 -->
+            <article class="profile-id-card rot-left">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFOxVo8ZT7ldGf_9XLq734Ujz89H5A4JRXboYA0LWbkw&s=10" alt="Referente">
+                    <div class="serial-number">REF-011</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-pink text-black">TIPOGRAFÍA BRUTALISTA</span>
+                    <h3 class="profile-name">Leo K.</h3>
+                    <p class="profile-desc">Diseñador de fuentes destructivas. Crea abecedarios basados en recortes de revistas de los 90s, errores de impresión y letras distorsionadas por escáneres viejos.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 2 -->
+            <article class="profile-id-card rot-right alt-bg">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCN-T3Fq6PKZK4xHNoKXlqE0-l5JkM9hgr8cLibwSAOw&s=10" alt="Referente">
+                    <div class="serial-number">REF-024</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-cyan text-black">ANIMACIÓN LOW POLY</span>
+                    <h3 class="profile-name">Mia S.</h3>
+                    <p class="profile-desc">Especialista en 3D retro. Renderiza mundos poligonales que imitan los gráficos de la primera generación de consolas, combinando nostalgia con narrativas de ciencia ficción.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 3 -->
+            <article class="profile-id-card rot-slight">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBkOdAv_0czIOXnldiYXlIfO9rgsIO9U-ROr2GFEi3Gg&s=10" alt="Referente">
+                    <div class="serial-number">REF-088</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-yellow text-black">DISEÑO SONORO</span>
+                    <h3 class="profile-name">Zack T.</h3>
+                    <p class="profile-desc">Ingeniero de audio especializado en sintetizadores modulares. Transforma ruido estático y grabaciones de campo en atmósferas densas para videojuegos independientes.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 4 -->
+            <article class="profile-id-card rot-left alt-bg">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjECMUs15ovKesjcN0EuVHjk_bgtjL1B8087VP_DEvmg&s=10" alt="Referente">
+                    <div class="serial-number">REF-102</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-black text-white">ARTE URBANO / STENCIL</span>
+                    <h3 class="profile-name">Elena R.</h3>
+                    <p class="profile-desc">Muralista callejera. Su trabajo se enfoca en plantillas de gran escala que denuncian la gentrificación, utilizando únicamente pintura en aerosol negra y roja.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 5 -->
+            <article class="profile-id-card rot-right">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK8uxWcOhHsCNfjtwc6QwU1Uddgp8GIkmgMbYwHu7GJg&s=10" alt="Referente">
+                    <div class="serial-number">REF-045</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-purple text-white">GAME DEV INDIE</span>
+                    <h3 class="profile-name">Hugo M.</h3>
+                    <p class="profile-desc">Programador solitario. Desarrolla mecánicas de juego caóticas y difíciles, rechazando los tutoriales modernos para devolverle al jugador la experiencia de descubrir por ensayo y error.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 6 -->
+            <article class="profile-id-card rot-slight alt-bg">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnUU_YMZYC4UTfO4uP_ji8xevFuG_SxZbmXGYOJsspig&s=10" alt="Referente">
+                    <div class="serial-number">REF-311</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-white text-black">FOTO ANALÓGICA</span>
+                    <h3 class="profile-name">Clara B.</h3>
+                    <p class="profile-desc">Purista del cuarto oscuro. Utiliza cámaras de formato medio averiadas intencionalmente para capturar filtraciones de luz y texturas impredecibles en sus retratos.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 7 -->
+            <article class="profile-id-card rot-left">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=NINA+W" alt="Referente">
+                    <div class="serial-number">REF-077</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-cyan text-black">UI/UX EXPERIMENTAL</span>
+                    <h3 class="profile-name">Nina W.</h3>
+                    <p class="profile-desc">Diseñadora de interfaces que rompen las reglas. Abandona el minimalismo moderno por interfaces saturadas, menús ocultos y navegación basada en la exploración intuitiva.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 8 -->
+            <article class="profile-id-card rot-right alt-bg">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=OMAR+F" alt="Referente">
+                    <div class="serial-number">REF-156</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-pink text-black">CONCEPT ART SCI-FI</span>
+                    <h3 class="profile-name">Omar F.</h3>
+                    <p class="profile-desc">Ilustrador de futuros distópicos. Sus bocetos muestran ciudades superpobladas, chatarra espacial y maquinaria oxidada, con un enfoque en la tecnología obsoleta pero funcional.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 9 -->
+            <article class="profile-id-card rot-slight">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=TARIQ+A" alt="Referente">
+                    <div class="serial-number">REF-201</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-yellow text-black">CREATIVE CODING</span>
+                    <h3 class="profile-name">Tariq A.</h3>
+                    <p class="profile-desc">Artista de código. Escribe shaders y algoritmos en tiempo real que reaccionan a las pulsaciones del teclado, generando visuales abstractos que nunca se repiten dos veces.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 10 -->
+            <article class="profile-id-card rot-left alt-bg">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=SALLY+J" alt="Referente">
+                    <div class="serial-number">REF-009</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-purple text-white">EDICIÓN ZINE / RISO</span>
+                    <h3 class="profile-name">Sally J.</h3>
+                    <p class="profile-desc">Editora independiente. Imprime fanzines en Risograph combinando tintas fluorescentes con papel reciclado, documentando la escena underground del skate local.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 11 -->
+            <article class="profile-id-card rot-right">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=REX+C" alt="Referente">
+                    <div class="serial-number">REF-444</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-black text-white">LIVE VISUALS / VJ</span>
+                    <h3 class="profile-name">Rex C.</h3>
+                    <p class="profile-desc">Visualista para conciertos de música electrónica industrial. Mezcla metraje VHS corrupto con animaciones estroboscópicas para crear experiencias inmersivas extremas.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 12 -->
+            <article class="profile-id-card rot-slight alt-bg">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=DIANA+P" alt="Referente">
+                    <div class="serial-number">REF-062</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-cyan text-black">ANIMACIÓN CLAYMATION</span>
+                    <h3 class="profile-name">Diana P.</h3>
+                    <p class="profile-desc">Directora de stop-motion. Construye marionetas de plastilina y alambre con proporciones grotescas para contar historias surrealistas cuadro por cuadro.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 13 -->
+            <article class="profile-id-card rot-left">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=BORIS+K" alt="Referente">
+                    <div class="serial-number">REF-333</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-pink text-black">TATUAJE IGNORANT</span>
+                    <h3 class="profile-name">Boris K.</h3>
+                    <p class="profile-desc">Tatuador que desafía la técnica clásica. Su estilo imita bocetos hechos a bolígrafo en cuadernos escolares, celebrando la imperfección y el humor irónico en la piel.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 14 -->
+            <article class="profile-id-card rot-right alt-bg">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=CLEO+V" alt="Referente">
+                    <div class="serial-number">REF-112</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-yellow text-black">MODA UPCYCLING</span>
+                    <h3 class="profile-name">Cleo V.</h3>
+                    <p class="profile-desc">Diseñadora textil. Desmonta prendas militares y ropa de trabajo desechada para coser armaduras urbanas llenas de bolsillos asimétricos y parches pesados.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 15 -->
+            <article class="profile-id-card rot-slight">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=SAM+E" alt="Referente">
+                    <div class="serial-number">REF-505</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-white text-black">EXPERIENCIAS WEBGL</span>
+                    <h3 class="profile-name">Sam E.</h3>
+                    <p class="profile-desc">Desarrollador web que odia el scroll tradicional. Sus sitios web son laberintos tridimensionales interactivos donde el usuario debe resolver puzzles para leer el contenido.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 16 -->
+            <article class="profile-id-card rot-left alt-bg">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=LUNA+D" alt="Referente">
+                    <div class="serial-number">REF-909</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-purple text-white">MÚSICA CHIPTUNE</span>
+                    <h3 class="profile-name">Luna D.</h3>
+                    <p class="profile-desc">Compositora lo-fi. Hackea consolas portátiles de los 80s utilizando trackers de audio nativos para extraer melodías crudas y ritmos frenéticos de sus chips de sonido originales.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 17 -->
+            <article class="profile-id-card rot-right">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=KAI+N" alt="Referente">
+                    <div class="serial-number">REF-777</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-cyan text-black">DATA ART / VISUAL</span>
+                    <h3 class="profile-name">Kai N.</h3>
+                    <p class="profile-desc">Artista de datos. Recopila bases de datos de spam, errores de servidor y tráfico de red basura para convertirlos en enormes infografías y pósteres de arte abstracto.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 18 -->
+            <article class="profile-id-card rot-slight alt-bg">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=ROCCO+G" alt="Referente">
+                    <div class="serial-number">REF-808</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-pink text-black">CIRCUIT BENDING</span>
+                    <h3 class="profile-name">Rocco G.</h3>
+                    <p class="profile-desc">Modificador de hardware. Abre juguetes electrónicos viejos y radios rotas para cortocircuitar sus placas base deliberadamente y usarlos como instrumentos musicales experimentales.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 19 -->
+            <article class="profile-id-card rot-left">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=JADA+L" alt="Referente">
+                    <div class="serial-number">REF-222</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-black text-white">GRAFFITI / THROW-UPS</span>
+                    <h3 class="profile-name">Jada L.</h3>
+                    <p class="profile-desc">Escritora de graffiti enfocada en la velocidad. Sus tipografías infladas a dos colores cubren trenes abandonados, priorizando el impacto visual inmediato sobre los detalles finos.</p>
+                </div>
+            </article>
+
+            <!-- PERFIL 20 -->
+            <article class="profile-id-card rot-right alt-bg">
+                <div class="tape-piece center-tape"></div>
+                <div class="profile-photo-box">
+                    <img src="https://placehold.co/300x300/222/fff?text=FINN+O" alt="Referente">
+                    <div class="serial-number">REF-616</div>
+                </div>
+                <div class="profile-info">
+                    <span class="specialty-label bg-yellow text-black">ARTE GENERATIVO</span>
+                    <h3 class="profile-name">Finn O.</h3>
+                    <p class="profile-desc">Pintor sin pinceles. Construye sistemas de inteligencia artificial primitivos que alimentan plóters de dibujo mecánicos, dejando que la máquina cometa errores con bolígrafos de gel.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <footer class="punk-footer">
+        <div class="footer-container">
+            
+            <div class="footer-brand">
+                <h2 class="footer-logo">
+                    <span class="bg-white text-black">GUÍA</span> 
+                    <span class="bg-pink text-black">TONOTOS</span>
+                </h2>
+                <p class="typewriter-text text-white">Creatividad a los golpes. 2026.</p>
+            </div>
+
+            <div class="footer-socials">
+                <h3 class="social-title">/ CONECTA</h3>
+                <ul class="social-links">
+                    <li><a href="#" class="hover-cyan">X / Twitter</a></li>
+                    <li><a href="#" class="hover-pink">Instagram</a></li>
+                    <li><a href="#" class="hover-yellow">Discord</a></li>
+                    <li><a href="#" class="hover-purple">TikTok</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-legal">
+                <h3 class="social-title">/ LEGAL</h3>
+                <ul class="social-links">
+                    <li><a href="#">Términos de Uso</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; 2026 Guía Tonotos. <span class="highlight-punk">Todos los derechos reservados.</span> (O tal vez no, haz lo que quieras).
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

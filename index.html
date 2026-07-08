@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav Punk Rasgado</title>
+    <link rel="stylesheet" href="css/contenido_principal.css">
+    <link rel="stylesheet" href="css/contenido_inicio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <script src="js/contenido_inicio.js" defer></script>
+    <script src="js/jquery-4.0.0.min.js" defer></script>
+    <script src="js/modal.js" defer></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <svg width="0" height="0" class="svg-filter">
+        <filter id="torn-edge">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
+
+
+    <header class="header-container">
+        
+        <!-- PARTE 1: LOGO (Izquierda) -->
+        <div class="torn-logo-wrapper">
+            <div class="paper-layer layer-purple"></div>
+            <div class="paper-layer layer-pink"></div>
+            <div class="paper-layer layer-cyan"></div>
+            
+            <div class="paper-layer layer-white">
+                <!-- Solo reemplaza "tu_logo.png" por la ruta de tu imagen -->
+                <img src="img/logo.png" alt="Logo Guía Tonotos" class="logo-img">
+            </div>
+        </div>
+
+        <!-- PARTE 2: NAVEGACIÓN (Derecha) -->
+        <nav class="torn-nav">
+            <div class="paper-layer layer-purple"></div>
+            <div class="paper-layer layer-pink"></div>
+            <div class="paper-layer layer-cyan"></div>
+            
+            <div class="paper-layer layer-white">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="text-cyan active">Inicio</a></li>
+                    <li><a href="pginas/Explorar.html" class="text-dark">Explorar</a></li>
+                    <li><a href="pginas/Herramientas.html" class="text-purple">Herramientas</a></li>
+                    <li><a href="pginas/Referentes.html" class="text-pink">Referentes</a></li>
+                    <li><a href="pginas/Perfil.html" class="text-cyan">Perfil</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+
+    <div class="punk-section-title-wrapper">
+        <h2 class="punk-section-title shadow-pink rot-left">
+            REFERENTES CREATIVOS
+        </h2>
+    </div>
+
+    <div class="punk-section-title-wrapper">
+        <h2 class="punk-section-title shadow-cyan rot-right">
+            DEL MOMENTO
+        </h2>
+    </div>
+
+    <!-- #region CARROUSEL-->
+    <div class="punk-carousel-wrapper">
+    
+        <button class="punk-btn prev-btn" id="btnPrev">
+            <span class="arrow-text">&#10094;</span>
+        </button>
+
+        <div class="punk-track">
+            <div class="mural-board" data-index="0" id="mostrar_eno">
+                <!--card -->
+                <div class="mural-item polaroid" style="--x: 30px; --y: 40px; --w: 340px; --rot: -6deg;">
+                    <div class="cinta"></div>
+                    
+                    <img src="https://www.datocms-assets.com/199265/1781540929-genesis_fullbody_b_fhd_16x9.jpg?auto=format&q=75&w=1920&h=1080" alt="Foto revelada">
+                    <p class="handwritten-text">Junio de 2026</p>
+                </div>
+                <!--card -->
+                <div class="mural-item post-it" style="--x: 600px; --y: 0px; --w: 300px; --rot: 8deg; --bg: #2a9d8f;">
+                    <div class="clavo"></div>
+                    
+                    <p class="handwritten-text">
+                        Robótica e Inteligencia Artificial<br>
+                    </p>
+                </div>
+                <!--card -->
+                <div class="mural-item post-it" style="--x: 200px; --y: 280px; --w: 600px; --rot: 2deg; --bg: #d81b60;">
+                    <div class="clavo"></div>
+                    
+                    <p class="handwritten-text">
+                        Mientras muchas empresas apostaban por robots con apariencia humana, Genesis AI tomó un camino diferente. Su robot Eno demuestra que la verdadera innovación no siempre está en parecerse a las personas, sino en resolver problemas de manera más eficiente.<br>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mural-board" data-index="1" id="mostrar_AlphaGenome">
+                <!--card -->
+                <div class="mural-item polaroid" style="--x: -20px; --y: -20px; --w: 340px; --rot: -6deg;">
+                    <div class="cinta"></div>
+                    
+                    <img src="https://medvolt-website.s3.us-east-1.amazonaws.com/Blog-Images/Alphagenome/1_alphagenome.jpg" alt="Foto revelada">
+                    <p class="handwritten-text">2026</p>
+                </div>
+                <!--card -->
+                <div class="mural-item post-it" style="--x: 600px; --y: 0px; --w: 300px; --rot: 8deg; --bg: #2a9d8f;">
+                    <div class="clavo"></div>
+                    
+                    <p class="handwritten-text">
+                        Biotecnología e Inteligencia Artificial<br>
+                    </p>
+                </div>
+                <!--card -->
+                <div class="mural-item post-it" style="--x: 200px; --y: 280px; --w: 600px; --rot: 2deg; --bg: #4a148c;">
+                    <div class="clavo"></div>
+                    
+                    <p class="handwritten-text">
+                        La inteligencia artificial está revolucionando la medicina. AlphaGenome, desarrollado por Google DeepMind, promete acelerar el análisis del ADN y ayudar a los científicos a comprender enfermedades con una velocidad nunca antes vista.<br>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mural-board" data-index="2" id="mostrar_ForestCity">
+                <!--card -->
+                <div class="mural-item polaroid" style="--x: -20px; --y: -20px; --w: 340px; --rot: -6deg;">
+                    <div class="cinta"></div>
+                    
+                    <img src="https://image-cdn-ak.spotifycdn.com/image/ab6772ab000015be28f41bb9b51b007436133fee" alt="Foto revelada">
+                    <p class="handwritten-text">2026</p>
+                </div>
+                <!--card -->
+                <div class="mural-item post-it" style="--x: 600px; --y: 0px; --w: 300px; --rot: 8deg; --bg: #ffe366;">
+                    <div class="clavo"></div>
+                    
+                    <p class="handwritten-text">
+                        Arquitectura y Urbanismo<br>
+                    </p>
+                </div>
+                <!--card -->
+                <div class="mural-item post-it" style="--x: 200px; --y: 280px; --w: 600px; --rot: 2deg; --bg: rgb(238, 181, 135);">
+                    <div class="clavo"></div>
+                    
+                    <p class="handwritten-text">
+                        ¿Es posible construir ciudades completas utilizando robótica e inteligencia artificial? Forest City 1 propone una nueva forma de crear comunidades sostenibles mediante tecnología avanzada y procesos de fabricación automatizados.<br>
+                    </p>
+                </div>
+            </div>
+
+            <div class="mural-board" data-index="3" id="mostrar_ProyectosSociales">
+                <!--card -->
+                <div class="mural-item polaroid" style="--x: -20px; --y: -20px; --w: 340px; --rot: -6deg;">
+                    <div class="cinta"></div>
+                    
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAryXsYlL1pH9MyRyuu_EJIwgWi7xXPDhqt0MBjwY3xg&s=10" alt="Foto revelada">
+                    <p class="handwritten-text">2026</p>
+                </div>
+                <!--card -->
+                <div class="mural-item post-it" style="--x: 600px; --y: 0px; --w: 300px; --rot: 8deg; --bg: #66ff99;">
+                    <div class="clavo"></div>
+                    
+                    <p class="handwritten-text">
+                        Impacto sociall<br>
+                    </p>
+                </div>
+                <!--card -->
+                <div class="mural-item post-it" style="--x: 200px; --y: 280px; --w: 600px; --rot: 2deg; --bg: rgb(222, 238, 135);">
+                    <div class="clavo"></div>
+                    
+                    <p class="handwritten-text">
+                        La inteligencia artificial no solo está transformando empresas, también está ayudando a enfrentar desafíos globales. Descubre algunos de los proyectos más innovadores que utilizan esta tecnología para mejorar la salud, la educación y el medio ambiente.<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <button class="punk-btn next-btn" id="btnNext">
+            <span class="arrow-text">&#10095;</span>
+        </button>
+    </div>
+
+    
+    <!-- #region TEXTO NORMAL-->
+    <article class="punk-text-card">
+        <h3 class="card-title">
+            <span class="cut-word rot-left bg-black text-white">¿Qué tienen en común</span>
+            <span class="cut-word rot-right bg-pink text-black">estos proyectos?</span>
+        </h3>
+        
+        <div class="card-content">
+            <p>
+                Las grandes ideas no aparecen por casualidad. Detrás de cada proyecto que cambia una industria, revoluciona una tecnología o mejora la vida de millones de personas existe un proceso creativo lleno de observación, curiosidad, experimentación y perseverancia.
+                <span class="punk-highlight bg-yellow">Esta página nace con el propósito de acercarte a esas historias y demostrar</span> que la creatividad no es un talento exclusivo de unos pocos, sino una habilidad que puede desarrollarse con práctica y aprendizaje.
+            </p>
+            <p>
+                Aquí encontrarás una selección de proyectos innovadores que han marcado tendencia en los últimos meses. <span class="punk-marker text-purple">Cada uno representa una forma distinta de enfrentar un problema, cuestionar lo establecido o aprovechar nuevas tecnologías para crear soluciones originales. </span> 
+                Más allá de mostrar el resultado final, buscamos explicar cómo surgieron estas ideas, <span class="cut-word bg-white text-black small-cut">cuáles fueron los desafíos que enfrentaron sus creadores</span> 
+                y qué enseñanzas pueden dejar para inspirar tus propios proyectos.
+            </p>
+            <p>
+                Nuestro objetivo no es que copies estas iniciativas, sino que comprendas el proceso detrás de ellas. Analizar casos reales te permitirá descubrir nuevas maneras de pensar, 
+                <span class="punk-highlight bg-yellow">identificar oportunidades de innovación y desarrollar una visión más amplia sobre la creatividad aplicada a cualquier ámbito, </span>ya sea tecnología, diseño, arte, negocios, ciencia, arquitectura o emprendimiento.
+            </p>
+        </div>
+    </article>
+
+    <!-- #region LISTADO-->
+    <article class="punk-text-card">
+    
+        <h3 class="card-title">
+            <span class="cut-word rot-right bg-black text-white">¿Cómo desarrollar una </span>
+            <span class="cut-word rot-left bg-yellow text-black">mentalidad creativa?</span>
+        </h3>
+
+        <p>
+            Ser creativo no significa esperar a que llegue una gran inspiración.
+            La creatividad se fortalece mediante hábitos y una actitud abierta al aprendizaje. Algunas prácticas que pueden ayudarte son:
+        </p>
+        
+        <ul class="punk-list">
+            <li>
+                <strong>Observa tu entorno:</strong> Los problemas cotidianos suelen esconder oportunidades para crear soluciones innovadoras.
+            </li>
+            <li>
+                <strong>Haz preguntas constantemente:</strong> Cuestionar cómo funcionan las cosas permite descubrir nuevas posibilidades de mejora.
+            </li>
+            <li>
+                <strong>Combina conocimientos:</strong> Muchas de las mejores ideas nacen al unir conceptos de disciplinas completamente diferentes.
+            </li>
+            <li>
+                <strong>Acepta los errores como parte del proceso:</strong> Equivocarse no significa fracasar, sino aprender qué caminos no funcionan y acercarse a una mejor solución.
+            </li>
+            <li>
+                <strong>Mantente informado:</strong> Conocer proyectos recientes y tendencias tecnológicas amplía tu perspectiva y estimula nuevas ideas.
+            </li>
+            <li>
+                <strong>Experimenta sin miedo:</strong> No todas las ideas serán exitosas, pero cada intento desarrolla tu capacidad para innovar.
+            </li>
+        </ul>
+    </article>
+        
+    <article class="punk-text-card">
+        <!-- #region PRODUCTOS -->
+        <section class="punk-products-grid">
+            <a id="mostrar_Brainstorming" class="product-card-link rot-left">
+                <div class="tape-top"></div>
+                <div class="product-image">
+                    <img src="https://placehold.co/400x250/222/fff?text=Brainstorming" alt="Estilos">
+                </div>
+                <h3 class="product-title">
+                    <span class="cut-word bg-black text-white">Brain</span> 
+                    <span class="cut-word bg-cyan text-black">storming</span>
+                </h3>
+                <p class="product-desc">Guías de estilo, referencias visuales y ropa súper holgada para tus personajes o proyectos.</p>
+                <div class="action-btn bg-pink">ENTRAR AHORA &#10142;</div>
+            </a>
+            <!-- #region -->
+            <a id="mostrar_DesignThinking" class="product-card-link rot-right alt-bg">
+                <div class="tape-top"></div>
+                <div class="product-image">
+                    <img src="https://placehold.co/400x250/222/fff?text=Design Thinking" alt="Streams">
+                </div>
+                <h3 class="product-title">
+                    <span class="cut-word bg-yellow text-black">Design</span> 
+                    <span class="cut-word bg-black text-white"> Thinking</span>
+                </h3>
+                <p class="product-desc">Método centrado en comprender las necesidades del usuario para crear soluciones innovadoras.</p>
+                <div class="action-btn bg-cyan">ENTRAR AHORA &#10142;</div>
+            </a>
+            <!-- #region SCAMPER -->
+            <a id="mostrar_SCAMPER" class="product-card-link rot-slight">
+                <div class="tape-top"></div>
+                <div class="product-image">
+                    <img src="https://placehold.co/400x250/222/fff?text=SCAMPER" alt="Historias">
+                </div>
+                <h3 class="product-title">
+                    <span class="cut-word bg-black text-white">SCAMPER</span> 
+                </h3>
+                <p class="product-desc">Técnica que mejora una idea existente mediante preguntas y diferentes enfoques creativos.</p>
+                <div class="action-btn bg-yellow" >ENTRAR AHORA &#10142;</div>
+            </a>
+        </section>
+    </article>
+
+    <!-- #region AFFILIATES-->
+    <section class="punk-affiliates-section">
+    
+        <div class="affiliates-header">
+            <h2 class="ransom-title small-ransom">
+                <span class="cut-word rot-left bg-black text-white">REDES</span>
+                <span class="cut-word rot-right bg-pink text-black">&</span>
+                <span class="cut-word rot-left bg-cyan text-black">ALIADOS</span>
+            </h2>
+            <br>
+            <p class="affiliates-subtitle">Creativos, marcas y comunidades que rompen las reglas con nosotros.</p>
+        </div>
+
+        <div class="sticker-board">
+            
+            <a href="#" class="affiliate-sticker sticker-type-1 rot-left" style="--accent: #8c52ff;">
+                <span class="sticker-text">Farfadox<br>Creators</span>
+            </a>
+
+            <a href="#" class="affiliate-sticker sticker-type-2 rot-right" style="--accent: #ffde59;">
+                <span class="sticker-text">Emikukis<br>Studio</span>
+            </a>
+
+            <a href="#" class="affiliate-sticker sticker-type-3 rot-slight" style="--accent: #ff66c4;">
+                <span class="sticker-text">Oversize<br>Co.</span>
+            </a>
+
+            <a href="#" class="affiliate-sticker sticker-type-4 rot-left" style="--accent: #2a9d8f;">
+                <div class="tape-corner"></div>
+                <span class="sticker-text">Milo<br>Records</span>
+            </a>
+
+            <a href="#" class="affiliate-sticker sticker-type-1 rot-right" style="--accent: #ff3333;">
+                <span class="sticker-text">Comunidad<br>Tonotos</span>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- #region modal inicio-->
+
+    <div class="punk-modal-overlay" id="fondo_INICIO">
+    
+        <div class="punk-modal-content">
+            
+            <button class="cerrar-modal-btn" id="cerrar_INICIO">✖</button>
+
+            <div class="modal-tape"></div>
+
+            <div class="modal-body">
+                <h2 class="punk-section-title shadow-cyan rot-left" style="font-size: 2rem;">
+                    👋 ¡Bienvenido!
+                </h2>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Nos alegra tenerte aquí. Explora proyectos innovadores, descubre cómo surgieron las mejores ideas y aprende métodos que pueden ayudarte a desarrollar tu propia creatividad.
+                </p>
+                <br>
+                <span class="cut-word rot-left bg-black text-white">¡Esperamos que encuentres la inspiración que estás buscando! 🚀</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- #region modal referentes-->
+    <div class="punk-modal-overlay" id="fondo_eno">
+    
+        <div class="punk-modal-content">
+            
+            <button class="cerrar-modal-btn" id="cerrar_eno">✖</button>
+
+            <div class="modal-tape"></div>
+
+            <div class="modal-body">
+                <h2 class="punk-section-title shadow-cyan rot-left" style="font-size: 2rem;">
+                    Genesis AI – Eno
+                </h2>
+                <span class="cut-word rot-right bg-pink text-black">¿Qué es?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Eno es un robot desarrollado por la empresa francesa Genesis AI, presentado en junio de 2026. Fue diseñado para colaborar con personas en entornos industriales, centros logísticos y hospitales, realizando tareas repetitivas, de precisión o que requieren mover objetos con seguridad.
+                </p>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    A diferencia de otros robots humanoides que intentan imitar el cuerpo humano, Eno utiliza una base móvil con ruedas y brazos robóticos especializados. Este enfoque permite reducir costos, mejorar la estabilidad y aumentar la eficiencia en tareas específicas.
+                </p>
+                <br>
+                <span class="cut-word rot-left bg-black text-white">¿Por qué es un proyecto innovador?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Muchas empresas han invertido en robots con apariencia humana pensando que ese es el futuro de la automatización. Genesis AI decidió cuestionar esa idea y diseñó un robot cuya prioridad es la funcionalidad antes que la apariencia.
+                </p>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Gracias a esta filosofía, Eno puede desempeñar diferentes trabajos de manera eficiente sin incorporar elementos innecesarios. El proyecto demuestra que la innovación no siempre consiste en hacer algo más complejo, sino en simplificar una solución para que sea realmente útil.
+                </p>
+                <br>
+                <span class="cut-word rot-right bg-pink text-black">¿Qué podemos aprender?</span>
+                <ul class="punk-list">
+                    <li>
+                        <strong>Cuestionar las tendencias también puede generar innovación.</strong>
+                    </li>
+                    <li>
+                        <strong>La mejor solución no siempre es la más llamativa.</strong>
+                    </li>
+                    <li>
+                        <strong>Diseñar pensando en la utilidad suele generar mejores resultados que diseñar solo por estética.</strong>
+                    </li>
+                </ul>+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="punk-modal-overlay" id="fondo_AlphaGenome">
+        <div class="punk-modal-content">
+            <button class="cerrar-modal-btn" id="cerrar_AlphaGenome">✖</button>
+
+            <div class="modal-tape"></div>
+
+            <div class="modal-tape"></div>
+
+            <div class="modal-body">
+                <h2 class="punk-section-title shadow-cyan rot-left" style="font-size: 2rem;">
+                    AlphaGenome
+                </h2>
+                <span class="cut-word rot-right bg-pink text-black">¿Qué es?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    AlphaGenome es un modelo de inteligencia artificial desarrollado por Google DeepMind para ayudar a investigadores y científicos a analizar información genética. Su objetivo es comprender cómo pequeñas variaciones en el ADN pueden afectar el funcionamiento de los genes y contribuir al desarrollo de enfermedades.
+                </p>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    El análisis del genoma humano implica enormes cantidades de información que normalmente requieren mucho tiempo para ser interpretadas. AlphaGenome acelera este proceso utilizando modelos de aprendizaje automático capaces de identificar patrones complejos.
+                </p>
+                <br>
+                <span class="cut-word rot-left bg-black text-white">¿Por qué es un proyecto innovador?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Este sistema puede realizar en minutos análisis que anteriormente podían requerir semanas o incluso meses de trabajo especializado. Esto permite acelerar investigaciones relacionadas con enfermedades hereditarias, medicina personalizada y desarrollo de nuevos tratamientos.
+                </p>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    La innovación del proyecto no está únicamente en la inteligencia artificial, sino en la forma en que combina grandes volúmenes de datos con herramientas capaces de asistir a los científicos en la toma de decisiones.
+                </p>
+                <br>
+                <span class="cut-word rot-right bg-pink text-black">¿Qué podemos aprender?</span>
+                <ul class="punk-list">
+                    <li>
+                        <strong>La tecnología puede potenciar el trabajo humano en lugar de reemplazarlo.</strong>
+                    </li>
+                    <li>
+                        <strong>Combinar conocimientos de diferentes áreas genera soluciones innovadoras.</strong>
+                    </li>
+                    <li>
+                        <strong>Resolver problemas complejos requiere aprovechar las herramientas disponibles.</strong>
+                    </li>
+                </ul>
+                <br>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="punk-modal-overlay" id="fondo_ForestCity">
+    
+        <div class="punk-modal-content">
+            
+            <button class="cerrar-modal-btn" id="cerrar_ForestCity">✖</button>
+
+            <div class="modal-tape"></div>
+
+            <div class="modal-body">
+                <h2 class="punk-section-title shadow-cyan rot-left" style="font-size: 2rem;">
+                    Forest City 1
+                </h2>
+                <span class="cut-word rot-right bg-pink text-black">¿Qué es?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Forest City 1 es una propuesta de ciudad sostenible que busca transformar la forma en que se construyen viviendas. El proyecto plantea utilizar microfábricas automatizadas y robots para fabricar estructuras de madera de manera rápida, eficiente y con un menor impacto ambiental.
+                </p>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Su objetivo es reducir los tiempos de construcción, optimizar el uso de materiales y crear comunidades más sostenibles mediante procesos de fabricación modernos.
+                </p>
+                <br>
+                <span class="cut-word rot-left bg-black text-white">¿Por qué es un proyecto innovador?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Tradicionalmente, la construcción depende de procesos largos y costosos. Forest City 1 propone cambiar completamente ese modelo incorporando robótica, automatización e inteligencia artificial para fabricar viviendas de forma más eficiente.
+                </p>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    En lugar de mejorar únicamente un edificio, el proyecto replantea todo el proceso de construcción desde su origen.
+                </p>
+                <br>
+                <span class="cut-word rot-right bg-pink text-black">¿Qué podemos aprender?</span>
+                <ul class="punk-list">
+                    <li>
+                        <strong>Pensar en grande permite transformar industrias completas.</strong>
+                    </li>
+                    <li>
+                        <strong>La innovación puede surgir al combinar varias tecnologías existentes.</strong>
+                    </li>
+                    <li>
+                        <strong>Los problemas actuales pueden resolverse replanteando todo el sistema, no solo una parte.</strong>
+                    </li>
+                </ul>
+                <br>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="punk-modal-overlay" id="fondo_ProyectosSociales">
+    
+        <div class="punk-modal-content">
+            
+            <button class="cerrar-modal-btn" id="cerrar_ProyectosSociales">✖</button>
+
+            <div class="modal-tape"></div>
+
+            <div class="modal-body">
+                <h2 class="punk-section-title shadow-cyan rot-left" style="font-size: 2rem;">
+                    AI for Good
+                </h2>
+                <span class="cut-word rot-right bg-pink text-black">¿Qué es?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    AI for Good es una iniciativa impulsada por la Unión Internacional de Telecomunicaciones (UIT), organismo especializado de las Naciones Unidas. Su objetivo es reunir proyectos que utilizan inteligencia artificial para resolver problemas sociales y ambientales en diferentes partes del mundo.
+                </p>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Los proyectos abarcan áreas como salud, agricultura, educación, cambio climático, gestión de desastres y desarrollo sostenible.
+                </p>
+                <br>
+                <span class="cut-word rot-left bg-black text-white">¿Por qué es un proyecto innovador?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Durante los últimos años, gran parte del desarrollo de la inteligencia artificial se ha enfocado en aplicaciones comerciales. AI for Good demuestra que esta tecnología también puede utilizarse para mejorar la calidad de vida de las personas y apoyar a comunidades que enfrentan desafíos importantes.
+                </p>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    La iniciativa conecta investigadores, empresas, gobiernos y organizaciones para compartir soluciones que puedan aplicarse a nivel global.
+                </p>
+                <br>
+                <span class="cut-word rot-right bg-pink text-black">¿Qué podemos aprender?</span>
+                <ul class="punk-list">
+                    <li>
+                        <strong>La innovación tiene mayor impacto cuando busca resolver problemas reales.</strong>
+                    </li>
+                    <li>
+                        <strong>La tecnología también puede generar beneficios sociales y ambientales.</strong>
+                    </li>
+                    <li>
+                        <strong>Colaborar entre diferentes sectores permite desarrollar soluciones más completas.</strong>
+                    </li>
+                </ul>
+                <br>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- #region modal productos-->
+    <div class="punk-modal-overlay" id="fondo_Brainstorming">
+    
+        <div class="punk-modal-content">
+            
+            <button class="cerrar-modal-btn" id="cerrar_Brainstorming">✖</button>
+
+            <div class="modal-tape"></div>
+
+            <div class="modal-body">
+                <h2 class="punk-section-title shadow-cyan rot-left" style="font-size: 2rem;">
+                    Brainstorming
+                </h2>
+                <span class="cut-word rot-right bg-pink text-black">¿Qué es?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    
+                    El Brainstorming es una técnica de creatividad que consiste en generar la mayor cantidad posible de ideas sin juzgarlas mientras aparecen. Su objetivo es estimular el pensamiento libre y permitir que surjan soluciones inesperadas.
+                </p>
+                <br>
+                <span class="cut-word rot-left bg-black text-white">¿Cómo funciona?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                En lugar de buscar una idea perfecta desde el principio, se busca producir muchas ideas. Después se analizan y seleccionan las mejores.
+                La regla principal es que ninguna idea es mala durante la fase de creación. </p>
+                <br>
+                <span class="cut-word rot-right bg-pink text-black">¿Cómo funciona?</span>
+                <ul class="punk-list">
+                    <li>
+                        <strong>Define claramente el problema.</strong>
+                    </li>
+                    <li>
+                        <strong>Reúne a una persona o un equipo.</strong>
+                    </li>
+                    <li>
+                        <strong>Establece un límite de tiempo (10-20 minutos).</strong>
+                    </li>
+                    <li>
+                        <strong>Escribe todas las ideas que aparezcan.</strong>
+                    </li>
+                    <li>
+                        <strong>No critiques ninguna propuesta.</strong>
+                    </li>
+                    <li>
+                        <strong>Combina o mejora las ideas existentes.</strong>
+                    </li>
+                    <li>
+                        <strong>Al finalizar, analiza cuáles son las más prometedoras.</strong>
+                    </li>
+                </ul>
+                <br>
+                <span class="cut-word rot-right bg-pink text-black">¿Por qué funciona?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Porque elimina el miedo a equivocarse y permite que las personas piensen con mayor libertad. Muchas ideas innovadoras nacen de combinar varias propuestas aparentemente simples.</p>
+                <br>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="punk-modal-overlay" id="fondo_DesignThinking">
+        <div class="punk-modal-content">
+            <button class="cerrar-modal-btn" id="cerrar_DesignThinking">✖</button>
+
+            <div class="modal-tape"></div>
+
+            <div class="modal-tape"></div>
+
+            <div class="modal-body">
+                <h2 class="punk-section-title shadow-cyan rot-left" style="font-size: 2rem;">
+                    Design Thinking
+                </h2>
+                <span class="cut-word rot-right bg-pink text-black">¿Qué es?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Es una metodología de innovación centrada en las personas. Antes de crear una solución, busca comprender profundamente las necesidades del usuario.
+                </p>
+                <br>
+                <span class="cut-word rot-left bg-black text-white">¿Cómo funciona?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Se basa en entender el problema desde la perspectiva del usuario, generar ideas, construir prototipos y probarlos continuamente.
+                </p>
+                <br>
+                <span class="cut-word rot-right bg-pink text-black">Paso a paso</span>
+                <ul class="punk-list">
+                    <li>
+                        <strong>1. Empatizar.</strong> Hablar con los usuarios.  Observar cómo utilizan un producto.  Identificar necesidades.
+                    </li>
+                    <li>
+                        <strong>2. Definir el problema.</strong> Resumir el problema principal.
+                    </li>
+                    <li>
+                        <strong>3. Idear soluciones.</strong> Generar muchas posibles soluciones.
+                    </li>
+                    <li>
+                        <strong>4. Construir prototipos.</strong> Crear una versión sencilla del producto. No necesita estar terminada.
+                    </li>
+                    <li>
+                        <strong>5. Probar y aprender.</strong>Mostrar el prototipo. Recibir opiniones. Mejorarlo. Repetir.
+                    </li>
+                </ul>
+                <br>
+                <span class="cut-word rot-right bg-pink text-black">¿Por qué funciona?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Porque evita desarrollar productos que nadie necesita.
+                    Todo gira alrededor del usuario.
+                </p>
+                <br>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="punk-modal-overlay" id="fondo_SCAMPER">
+    
+        <div class="punk-modal-content">
+            
+            <button class="cerrar-modal-btn" id="cerrar_SCAMPER">✖</button>
+
+            <div class="modal-tape"></div>
+
+            <div class="modal-body">
+                <h2 class="punk-section-title shadow-cyan rot-left" style="font-size: 2rem;">
+                    SCAMPER
+                </h2>
+                <span class="cut-word rot-right bg-pink text-black">¿Qué es?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    SCAMPER es una técnica que ayuda a mejorar una idea existente mediante siete preguntas clave.
+                </p>
+                <br>
+                <span class="cut-word rot-left bg-black text-white">¿Cómo funciona?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Cada letra representa una forma distinta de modificar un producto.
+                </p>
+                <br>
+                <span class="cut-word rot-right bg-pink text-black">Paso a paso</span>
+                <ul class="punk-list">
+                    <li>
+                        <strong>S — Substitute (Sustituir)</strong> ¿Qué puedo reemplazar?
+                    </li>
+                    <li>
+                        <strong>C — Combine (Combinar)</strong> ¿Qué dos ideas puedo unir?
+                    </li>
+                    <li>
+                        <strong>A — Adapt (Adaptar)</strong> ¿Qué puedo copiar de otro sector?
+                    </li>
+                    <li>
+                        <strong>M — Modify (Modificar)</strong> ¿Qué puedo hacer más grande, pequeño o diferente?
+                    </li>
+                    <li>
+                        <strong>P — Put to another use (Poner a otra utilización)</strong> ¿Puede servir para otra cosa?
+                    </li>
+                    <li>
+                        <strong>E — Eliminate (Eliminar)</strong> ¿Qué puedo quitar?
+                    </li>
+                    <li>
+                        <strong>R — Reverse (Invertir)</strong> ¿Qué pasa si hago lo contrario?
+                    </li>
+                </ul>
+                <br>
+                <span class="cut-word rot-right bg-pink text-black">¿Por qué funciona?</span>
+                <p style="margin-top: 20px; font-family: sans-serif; font-size: 1.1rem;">
+                    Porque obliga al cerebro a mirar un mismo problema desde siete perspectivas diferentes.
+                </p>
+                <br>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="punk-footer">
+        <div class="footer-container">
+            
+            <div class="footer-brand">
+                <h2 class="footer-logo">
+                    <span class="bg-white text-black">GUÍA</span> 
+                    <span class="bg-pink text-black">TONOTOS</span>
+                </h2>
+                <p class="typewriter-text text-white">Creatividad a los golpes. 2026.</p>
+            </div>
+
+            <div class="footer-socials">
+                <h3 class="social-title">/ CONECTA</h3>
+                <ul class="social-links">
+                    <li><a href="#" class="hover-cyan">X / Twitter</a></li>
+                    <li><a href="#" class="hover-pink">Instagram</a></li>
+                    <li><a href="#" class="hover-yellow">Discord</a></li>
+                    <li><a href="#" class="hover-purple">TikTok</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-legal">
+                <h3 class="social-title">/ LEGAL</h3>
+                <ul class="social-links">
+                    <li><a href="#">Términos de Uso</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; 2026 Guía Tonotos. <span class="highlight-punk">Todos los derechos reservados.</span> (O tal vez no, haz lo que quieras).
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

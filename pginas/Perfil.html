@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav Punk Rasgado</title>
+    <link rel="stylesheet" href="../css/contenido_principal.css">
+    <link rel="stylesheet" href="../css/contenido_inicio.css">
+    <link rel="stylesheet" href="../css/contenido_perfil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <script src="../js/contenido_inicio.js" defer></script>
+    <script src="../js/jquery-4.0.0.min.js" defer></script>
+    <script src="../js/modal.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <svg width="0" height="0" class="svg-filter">
+        <filter id="torn-edge">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
+
+    <header class="header-container">
+        
+        <!-- PARTE 1: LOGO (Izquierda) -->
+        <div class="torn-logo-wrapper">
+            <div class="paper-layer layer-purple"></div>
+            <div class="paper-layer layer-pink"></div>
+            <div class="paper-layer layer-cyan"></div>
+            
+            <div class="paper-layer layer-white">
+                <!-- Solo reemplaza "tu_logo.png" por la ruta de tu imagen -->
+                <img src="../img/logo.png" alt="Logo Guía Tonotos" class="logo-img">
+            </div>
+        </div>
+
+        <!-- PARTE 2: NAVEGACIÓN (Derecha) -->
+        <nav class="torn-nav">
+            <div class="paper-layer layer-purple"></div>
+            <div class="paper-layer layer-pink"></div>
+            <div class="paper-layer layer-cyan"></div>
+            
+            <div class="paper-layer layer-white">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="text-cyan active">Inicio</a></li>
+                    <li><a href="Explorar.html" class="text-dark">Explorar</a></li>
+                    <li><a href="Herramientas.html" class="text-purple">Herramientas</a></li>
+                    <li><a href="Referentes.html" class="text-pink">Referentes</a></li>
+                    <!-- Faltaba el color blue en tu CSS, puedes añadirlo o usar text-cyan -->
+                    <li><a href="Perfil.html" class="text-cyan">Perfil</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+
+    <!-- CONTENEDOR GENERAL DEL PERFIL PUNK (DATOS FICTICIOS) -->
+    <section class="punk-user-profile">
+        
+        <!-- COLUMNA IZQUIERDA: IDENTIFICACIÓN Y ESPECIALIDAD -->
+        <div class="profile-col-left">
+            
+            <!-- TARJETA DE IDENTIFICACIÓN (ID) -->
+            <div class="user-id-badge rot-left">
+                <div class="tape-piece top-center"></div>
+                <div class="id-header bg-black text-white">CREATIVO REGISTRADO</div>
+                
+                <div class="id-body">
+                    <img src="https://placehold.co/150x150/222/fff?text=GLITCH" alt="Avatar Usuario" class="user-avatar-main">
+                    <div class="user-basic-info">
+                        <h1 class="real-name">Max Sterling</h1>
+                        <span class="user-tag bg-pink">@glitch_max88</span>
+                        <span class="user-level">Nivel: 45 | Rango: Ciborg</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA DE ESPECIALIDAD Y GUSTOS -->
+            <div class="punk-text-card rot-slight" style="margin-top: 30px;">
+                <h3 class="card-title">
+                    <span class="cut-word bg-cyan text-black">ADN</span>
+                    <span class="cut-word bg-black text-white">CREATIVO</span>
+                </h3>
+                <div class="card-content">
+                    <p>
+                        <strong>Especialidad:</strong> Ilustración en <span class="punk-highlight bg-white">Pixel Art</span> y diseño de interfaces retro-futuristas. Experto en exprimir al máximo paletas de 16 colores.
+                    </p>
+                    <p>
+                        <strong>Estética preferida:</strong> Cyberpunk clásico, VHS desgastado, fallos de sistema (glitch art) y neones rotos.
+                    </p>
+                    <p>
+                        <strong>Intereses:</strong> Coleccionismo de sintetizadores analógicos, modificación de consolas de los años 90 (chiptune) y cine de ciencia ficción B.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: HISTORIAL, REFERENTES Y HERRAMIENTAS -->
+        <div class="profile-col-right">
+            
+            <!-- HERRAMIENTAS MÁS USADAS -->
+            <div class="tools-board bg-black text-white rot-right">
+                <h3 class="board-title text-pink">/ ARSENAL (Herramientas)</h3>
+                <div class="tools-list">
+                    <div class="tool-item">
+                        <span class="tool-icon bg-cyan text-black">Px</span>
+                        <span>Aseprite (Pixel Art)</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-icon bg-yellow text-black">Fz</span>
+                        <span>Figma (UI/UX)</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-icon bg-white text-black">/></span>
+                        <span>VS Code (Scripts)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HISTORIAL DE CONTENIDO -->
+            <div class="history-receipt rot-slight">
+                <h3 class="receipt-title">HISTORIAL RECIENTE</h3>
+                <ul class="receipt-list">
+                    <li>
+                        <span class="receipt-date">Hoy</span>
+                        <span class="receipt-item">Guía de animación de sprites (Ciclo de caminar)</span>
+                    </li>
+                    <li>
+                        <span class="receipt-date">Ayer</span>
+                        <span class="receipt-item">Descarga: Paleta de colores "Neon Vandal"</span>
+                    </li>
+                    <li>
+                        <span class="receipt-date">Hace 2d</span>
+                        <span class="receipt-item">Foro: Cómo reparar pantallas CRT</span>
+                    </li>
+                    <li>
+                        <span class="receipt-date">Hace 5d</span>
+                        <span class="receipt-item">Tutorial: Efecto de scanlines en CSS puro</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- REFERENTES Y EVENTOS TRACKEADOS -->
+            <div class="tracking-board">
+                <div class="mural-item post-it rot-left" style="position: relative; top: 0; left: 0; width: 100%; --bg: #38b6ff;">
+                    <div class="clavo"></div>
+                    <h4 class="handwritten-text text-black" style="margin-bottom: 10px;">En el Radar:</h4>
+                    <ul class="punk-list small-list">
+                        <li><strong>Música:</strong> Daft Punk, The Midnight, OST de juegos indie.</li>
+                        <li><strong>Juegos:</strong> Hotline Miami, Katana ZERO.</li>
+                        <li><strong>Eventos:</strong> Game Jam Global 2026.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="punk-footer">
+        <div class="footer-container">
+            
+            <div class="footer-brand">
+                <h2 class="footer-logo">
+                    <span class="bg-white text-black">GUÍA</span> 
+                    <span class="bg-pink text-black">TONOTOS</span>
+                </h2>
+                <p class="typewriter-text text-white">Creatividad a los golpes. 2026.</p>
+            </div>
+
+            <div class="footer-socials">
+                <h3 class="social-title">/ CONECTA</h3>
+                <ul class="social-links">
+                    <li><a href="#" class="hover-cyan">X / Twitter</a></li>
+                    <li><a href="#" class="hover-pink">Instagram</a></li>
+                    <li><a href="#" class="hover-yellow">Discord</a></li>
+                    <li><a href="#" class="hover-purple">TikTok</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-legal">
+                <h3 class="social-title">/ LEGAL</h3>
+                <ul class="social-links">
+                    <li><a href="#">Términos de Uso</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">
+                &copy; 2026 Guía Tonotos. <span class="highlight-punk">Todos los derechos reservados.</span> (O tal vez no, haz lo que quieras).
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
